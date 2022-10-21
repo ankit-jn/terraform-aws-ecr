@@ -9,17 +9,19 @@ resource aws_ecr_repository "this" {
     image_tag_mutability = lookup(each.value, "image_tag_mutability", "MUTABLE")
 
     dynamic "encryption_configuration" {
-        for_each = lookup(repository, "enable_encryption", false) ? [1] : []
+        for_each = lookup(each.value, "enable_encryption", false) ? [1] : []
 
-        encryption_type = lookup(repository, "encryption_type", "AES256")
-        kms_key = (lookup(repository, "encryption_type", "AES256") == "KMS") ? data.aws_kms_key.this[each.key].arn : null
+        content {
+            encryption_type = lookup(each.value, "encryption_type", "AES256")
+            kms_key = (lookup(each.value, "encryption_type", "AES256") == "KMS") ? data.aws_kms_key.this[each.key].arn : null
+        }
     }
 
     image_scanning_configuration {
-        scan_on_push = lookup(repository, "enable_image_scan", false)
+        scan_on_push = lookup(each.value, "enable_image_scan", false)
     }
 
-    tags = merge({"Name" = ecah.key}, var.default_tags, each.value.tags)
+    tags = merge({"Name" = each.key}, var.default_tags, lookup(each.value, "tags", {}))
 }
 
 ## Attach Policy to ECR repositories

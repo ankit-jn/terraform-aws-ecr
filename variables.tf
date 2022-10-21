@@ -45,7 +45,6 @@ tags                : A map of tags to assign to the repository.
                       (Optional)
 
 EOF
-    type = list(any)
     default = [
         {
             name = "first-repo"
