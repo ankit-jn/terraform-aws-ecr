@@ -42,9 +42,9 @@ Refer [Configuration Examples](https://github.com/arjstack/terraform-aws-example
 | <a name="kms_key"></a> [kms_key](#input\_kms_key) | The reference of the KMS key to use when encryption_type is KMS.<br>key Reference could be either of this format:<br>&nbsp;&nbsp;- `1234abcd-12ab-34cd-56ef-1234567890ab`<br>&nbsp;&nbsp;- `arn:aws:kms:<region>:<account no>:key/1234abcd-12ab-34cd-56ef-1234567890ab`<br>&nbsp;&nbsp;- `alias/my-key`<br>&nbsp;&nbsp;- `arn:aws:kms:<region>:<account no>:alias/my-key` | `string` |  | no |  |
 | <a name="enable_image_scan"></a> [enable_image_scan](#input\_enable_image_scan) | Flag to decide if images are scanned after being pushed to the repository | `bool` | `false` | no |  |
 | <a name="create_lifecycle_policy"></a> [create_lifecycle_policy](#input\_create_lifecycle_policy) | Flag to decide if Lifecycle policy should be attached to ECR repository | `bool` | `false` | no |  |
-| <a name="lifecycle_policy_file"></a> [lifecycle_policy_file](#input\_lifecycle_policy_file) | Lifecycle Policy File name if `create_lifecycle_policy` is set `true` | `string` |  | no |  |
+| <a name="lifecycle_policy_file"></a> [lifecycle_policy_file](#input\_lifecycle_policy_file) | Lifecycle Policy File name with path relative to root directory if `create_lifecycle_policy` is set `true` i.e. `policies/custom_policy.json`. | `string` |  | no |  |
 | <a name="attach_policy"></a> [attach_policy](#input\_attach_policy) | Flag to decide if policy should be attached to ECR repository | `bool` | `false` | no |  |
-| <a name="policy_file"></a> [policy_file](#input\_policy_file) | Policy File name if `attach_policy` is set `true`. | `string` |  | no |  |
+| <a name="policy_file"></a> [policy_file](#input\_policy_file) | Policy File name with path relative to root directory if `attach_policy` is set `true`. | `string` |  | no |  |
 | <a name="tags"></a> [tags](#input\_tags) | A map of tags to assign to the repository. | `map(string)` | `{}` | no |  |
 
 ## Outputs

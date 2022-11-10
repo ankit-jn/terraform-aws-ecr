@@ -12,7 +12,7 @@ data template_file "policy_template" {
                     repository.name => repository.policy_file 
                         if lookup(repository, "attach_policy", false)}
 
-    template = file("${path.root}/policies/${each.value}")
+    template = file("${path.root}/${each.value}")
 }
 
 data template_file "lifecycle_policy_template" {
@@ -21,5 +21,5 @@ data template_file "lifecycle_policy_template" {
                         repository.name => repository.lifecycle_policy_file 
                             if lookup(repository, "create_lifecycle_policy", false)}
 
-    template = file("${path.root}/policies/${each.value}")
+    template = file("${path.root}/${each.value}")
 }

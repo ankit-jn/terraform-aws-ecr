@@ -31,15 +31,11 @@ enable_image_scan   : Flag to decide if images are scanned after being pushed to
 
 create_lifecycle_policy : Flag to decide if Lifecycle policy should be attached to ECR repository
                           (Optional, default `false`)
-lifecycle_policy_file   : Lifecycle Policy File name; Policy content to be add to the lifecycle policy 
-                          will be read from the JSON document `<lifecycle_policy_file>` 
-                          from the directory "policies" under root directory. 
+lifecycle_policy_file   : Lifecycle Policy File name with path relative to root directory i.e. `policies/custom_policy.json`.
 
 attach_policy       : Flag to decide if policy should be attached to ECR repository
                       (Optional, default `false`)
-policy_file         : Policy File name; Policy content to be add to the lifecycle policy 
-                      will be read from the JSON document `<policy_file>` 
-                      from the directory "policies" under root directory. 
+policy_file         : Policy File name with path relative to root directory i.e. `policies/custom_policy.json`.
 
 tags                : A map of tags to assign to the repository.
                       (Optional)
