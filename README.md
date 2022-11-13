@@ -1,32 +1,32 @@
-# ARJ-Stack: Elastic Container Registry Repository Terraform module
+## ARJ-Stack: Elastic Container Registry Repository Terraform module
 
 A Terraform module for provisioning Elastic Container Registry Repository
 
-## Resources
+### Resources
 This module features the following components to be provisioned with different combinations:
 
 - Elastic Container Registry Repository [[aws_ecr_repository](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository)]
 - ECR Repository Policy [[aws_ecr_repository_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository_policy)]
 - ECR Lifecycle Policy [[aws_ecr_lifecycle_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_lifecycle_policy)]
 
-## Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2.5 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.22.0 |
 
-## Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.22.0 |
 
-## Examples
+### Examples
 
 Refer [Configuration Examples](https://github.com/arjstack/terraform-aws-examples/tree/main/aws-ecr) for effectively utilizing this module.
 
-## Inputs
+### Inputs
 ---
 
 - Policy content to be add to the lifecycle policy will be read from the JSON document `<lifecycle_policy_file>` from the directory "policies" under root directory.
@@ -47,13 +47,13 @@ Refer [Configuration Examples](https://github.com/arjstack/terraform-aws-example
 | <a name="policy_file"></a> [policy_file](#input\_policy_file) | Policy File name with path relative to root directory if `attach_policy` is set `true`. | `string` |  | no |  |
 | <a name="tags"></a> [tags](#input\_tags) | A map of tags to assign to the repository. | `map(string)` | `{}` | no |  |
 
-## Outputs
+### Outputs
 
 | Name | Type | Description |
 |:------|:------|:------|
 | <a name="ecr_configs"></a> [ecr_configs](#output\_ecr\_configs) |  `map` | Map of ECR repository configs<br>&nbsp;&nbsp;&nbsp;<b>Map Key:</b> Repository Name<br>&nbsp;&nbsp;&nbsp;<b>Map Value:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`arn`: Full ARN of the repository.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`registry_id`: The registry ID where the repository was created.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`repository_url`:  The URL of the repository |
 
-## Authors
+### Authors
 
 Module is maintained by [Ankit Jain](https://github.com/ankit-jn) with help from [these professional](https://github.com/arjstack/terraform-aws-ecr/graphs/contributors).
 
